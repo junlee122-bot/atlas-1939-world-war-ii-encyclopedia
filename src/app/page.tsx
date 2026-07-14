@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, ChevronRight, Clock3, Crosshair, Globe2, Landmark, Map, Radar, Scale, Search, Users } from "lucide-react";
 import { ArticleCard } from "@/components/article-card";
+import { BattleCard } from "@/components/battle-card";
 import { StrategicMap } from "@/components/strategic-map";
+import { battles } from "@/data/battles";
 import { articles, categories, featuredSlugs, timeline } from "@/data/wiki";
 
 const categoryIcons = { compass: Globe2, map: Map, crosshair: Crosshair, users: Users, landmark: Landmark, radar: Radar, globe: Globe2, scale: Scale };
@@ -29,9 +31,9 @@ export default function Home() {
         </div>
         <div className="hero-stats page-width">
           <div><strong>{articles.length}</strong><span>심층 문서</span></div>
+          <div><strong>{battles.length}</strong><span>전투 도감</span></div>
           <div><strong>{timeline.length}</strong><span>핵심 연표</span></div>
           <div><strong>8</strong><span>주제 영역</span></div>
-          <div><strong>1937–45</strong><span>세계적 시야</span></div>
           <p><BookOpen size={18} /> 모든 문서는 1차·2차 자료의 교차 검토를 지향합니다.</p>
         </div>
       </section>
@@ -44,7 +46,8 @@ export default function Home() {
         <div className="category-grid">
           {categories.map((category) => {
             const Icon = categoryIcons[category.icon];
-            return <Link href={`/explore?category=${encodeURIComponent(category.name)}`} className="category-card" key={category.name}><Icon size={22} /><div><h3>{category.name}</h3><p>{category.description}</p></div><span>{category.count.toString().padStart(2, "0")}</span><ChevronRight size={17} /></Link>;
+            const href = category.name === "전투와 작전" ? "/battles" : `/explore?category=${encodeURIComponent(category.name)}`;
+            return <Link href={href} className="category-card" key={category.name}><Icon size={22} /><div><h3>{category.name}</h3><p>{category.description}</p></div><span>{category.count.toString().padStart(2, "0")}</span><ChevronRight size={17} /></Link>;
           })}
         </div>
       </section>
@@ -61,9 +64,18 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section page-width home-battles">
+        <div className="section-heading">
+          <div><span className="section-index">03</span><p className="section-kicker">DEEP BATTLE DOSSIERS</p><h2>전투는 하루에 결정되지 않았다</h2></div>
+          <Link className="text-link dark-link" href="/battles">13개 전투 도감 보기 <ArrowRight size={16} /></Link>
+        </div>
+        <p className="home-battles-lead">전투 이전의 전략과 보급부터 분 단위의 전환점, 승패 이후의 기억과 논쟁까지. 널리 퍼진 야사에는 신뢰도 판정을 붙였습니다.</p>
+        <div className="battle-grid">{battles.slice(0, 3).map((battle) => <BattleCard key={battle.slug} battle={battle} />)}</div>
+      </section>
+
       <section className="section page-width timeline-home">
         <div className="section-heading">
-          <div><span className="section-index">03</span><p className="section-kicker">WAR IN MOTION</p><h2>6년, 세계가 무너지고 다시 세워진 시간</h2></div>
+          <div><span className="section-index">04</span><p className="section-kicker">WAR IN MOTION</p><h2>6년, 세계가 무너지고 다시 세워진 시간</h2></div>
           <Link className="text-link dark-link" href="/timeline">전체 연표 보기 <ArrowRight size={16} /></Link>
         </div>
         <div className="timeline-track">
@@ -82,7 +94,7 @@ export default function Home() {
 
       <section className="principles-band">
         <div className="page-width principles-grid">
-          <div><span className="section-index">04</span><p className="section-kicker">HOW WE READ HISTORY</p><h2>숫자보다 맥락,<br />결론보다 근거.</h2></div>
+          <div><span className="section-index">05</span><p className="section-kicker">HOW WE READ HISTORY</p><h2>숫자보다 맥락,<br />결론보다 근거.</h2></div>
           <div className="principle"><strong>01</strong><h3>다중 시점</h3><p>유럽 중심 연표를 넘어 중국, 식민지 조선, 동남아시아와 점령지의 경험을 함께 봅니다.</p></div>
           <div className="principle"><strong>02</strong><h3>개념의 구분</h3><p>사실과 해석, 직접 원인과 구조적 조건, 합의된 연구와 계속되는 논쟁을 구분합니다.</p></div>
           <div className="principle"><strong>03</strong><h3>인간 중심</h3><p>무기 제원과 지휘관의 결단만큼 민간인, 포로, 강제동원자와 생존자의 경험을 기록합니다.</p></div>

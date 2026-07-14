@@ -23,7 +23,7 @@ export type Article = {
 export const categories = [
   { name: "전쟁의 구조", icon: "compass", description: "원인·동맹·전략·총력전 체제", count: 4 },
   { name: "전선과 전역", icon: "map", description: "유럽·태평양·아시아·아프리카", count: 7 },
-  { name: "전투와 작전", icon: "crosshair", description: "결정적 전투와 작전 분석", count: 4 },
+  { name: "전투와 작전", icon: "crosshair", description: "배경·전개·야사까지 읽는 심층 도감", count: 13 },
   { name: "국가와 인물", icon: "users", description: "참전국·지도자·군 지휘부", count: 2 },
   { name: "사회와 민간인", icon: "landmark", description: "점령·저항·학살·일상", count: 3 },
   { name: "무기와 기술", icon: "radar", description: "육해공 무기·정보·과학", count: 2 },
