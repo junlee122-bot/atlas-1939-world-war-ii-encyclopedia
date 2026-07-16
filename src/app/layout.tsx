@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://worldwar2-wiki.vercel.app"),
+  metadataBase: new URL("https://world-war-ii-encyclopedia.vercel.app"),
   title: {
     default: "아틀라스 1939 — 제2차 세계대전 백과사전",
     template: "%s | 아틀라스 1939",

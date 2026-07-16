@@ -3,7 +3,7 @@ import { battles } from "@/data/battles";
 import { articles } from "@/data/wiki";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://worldwar2-wiki.vercel.app";
+  const baseUrl = "https://world-war-ii-encyclopedia.vercel.app";
   return [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: `${baseUrl}/explore`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },

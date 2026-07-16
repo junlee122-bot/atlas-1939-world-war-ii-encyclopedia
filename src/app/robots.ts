@@ -1,3 +1,3 @@
 import type { MetadataRoute } from "next";
 
-export default function robots(): MetadataRoute.Robots { return { rules: { userAgent: "*", allow: "/" }, sitemap: "https://worldwar2-wiki.vercel.app/sitemap.xml" }; }
+export default function robots(): MetadataRoute.Robots { return { rules: { userAgent: "*", allow: "/" }, sitemap: "https://world-war-ii-encyclopedia.vercel.app/sitemap.xml" }; }
