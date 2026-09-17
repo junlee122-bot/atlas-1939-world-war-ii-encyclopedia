@@ -14,7 +14,7 @@ export function SiteFooter() {
           <Link href="/battles">심층 전투 도감</Link>
           <Link href="/timeline">전쟁 연표</Link>
           <Link href="/about">편집 원칙</Link>
-          <a href="https://github.com/junlee122-bot/world-war-ii-encyclopedia" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} /></a>
+          <a href="https://github.com/junlee122-bot/atlas-1939-world-war-ii-encyclopedia" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} /></a>
         </div>
       </div>
       <div className="footer-bottom">
