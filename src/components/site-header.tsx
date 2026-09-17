@@ -3,9 +3,10 @@ import { Menu, Search } from "lucide-react";
 
 const navigation = [
   { href: "/explore", label: "주제 탐색" },
+  { href: "/battles", label: "전투 도감" },
   { href: "/timeline", label: "전쟁 연표" },
   { href: "/article/korea-under-total-war", label: "한국과 전쟁" },
-  { href: "/about", label: "아카이브 소개" },
+  { href: "/about", label: "소개" },
 ];
 
 export function SiteHeader() {
